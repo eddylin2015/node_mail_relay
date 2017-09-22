@@ -10,17 +10,13 @@ smtpclient.on('data', function(data) {
     let code=data.toString().substring(0,3);
     switch(code)
     {
-    case "220": client.write("HELO "+mc.mydomain+"\r\n"); break;
+    case "220": client.write("HELO "+mc.mydomain+"\r\n");               break;
     case "250": 
       switch(mail_proc_ind){
-            case 0:client.write("MAIL FROM:<"+fromaddr+">\r\n");
-            break;
-            case 1:client.write("RCPT TO:<"+toaddr+">\r\n");
-            break;
-            case 2:client.write("DATA\r\n");
-            break;
-            case 3:client.write("QUIT\r\n");
-            break;
+            case 0:client.write("MAIL FROM:<"+fromaddr+">\r\n");        break;
+            case 1:client.write("RCPT TO:<"+toaddr+">\r\n");            break;
+            case 2:client.write("DATA\r\n");                            break;
+            case 3:client.write("QUIT\r\n");                            break;
         }
         mail_proc_ind++;
         break;
@@ -28,7 +24,8 @@ smtpclient.on('data', function(data) {
         client.write("Blah blah blah..\r\n");
         client.write("\r\n.\r\n");
         ok354=true;
-    case "221": client.destroy(); break;
+        break;
+    case "221": client.destroy();           break;
     default:
         client.destroy();
     }
