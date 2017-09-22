@@ -1,4 +1,5 @@
 # node_mail_relay
+<pre>
 Use Net Socket Connection send email , ref smtp protocal.
 var mail_proc=["MAIL FROM","RCPT TO","DATA","QUIT","--"];
 var mail_proc_ind=0;
